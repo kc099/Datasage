@@ -1,0 +1,256 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+  border-left: 1px solid #ddd;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #0078d4;
+  color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.chat-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  font-size: 13px;
+  margin-left: 5px;
+}
+
+.messages-container {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+
+.empty-chat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #888;
+}
+
+.empty-chat-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.message {
+  max-width: 80%;
+  margin-bottom: 12px;
+  padding: 10px 15px;
+  border-radius: 18px;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message.user {
+  align-self: flex-end;
+  background-color: #0078d4;
+  color: white;
+  border-bottom-right-radius: 5px;
+}
+
+.message.bot {
+  align-self: flex-start;
+  background-color: #e9e9e9;
+  color: #333;
+  border-bottom-left-radius: 5px;
+}
+
+.message.system {
+  align-self: center;
+  background-color: #fff3cd;
+  color: #856404;
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 8px 12px;
+}
+
+.message-text {
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.message-time {
+  font-size: 11px;
+  opacity: 0.7;
+  margin-top: 5px;
+  text-align: right;
+}
+
+.message.user .message-time {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.message-image {
+  margin-bottom: 8px;
+}
+
+.message-image img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.typing-indicator span {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #888;
+  display: inline-block;
+  margin-right: 5px;
+  animation: typing 1s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.3s;
+  margin-right: 0;
+}
+
+@keyframes typing {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.chat-input-container {
+  padding: 15px;
+  background-color: white;
+  border-top: 1px solid #ddd;
+}
+
+.selected-file {
+  margin-bottom: 10px;
+}
+
+.file-preview {
+  position: relative;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.file-preview img {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #0078d4;
+}
+
+.remove-file {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  line-height: 1;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.chat-input-container input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 24px;
+  font-size: 14px;
+}
+
+.chat-input-container input:focus {
+  outline: none;
+  border-color: #0078d4;
+}
+
+.chat-buttons {
+  display: flex;
+  margin-left: 10px;
+}
+
+.upload-button, .send-button {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.upload-button {
+  background-color: #f0f0f0;
+  margin-right: 8px;
+}
+
+.upload-button:hover {
+  background-color: #e0e0e0;
+}
+
+.send-button {
+  background-color: #0078d4;
+  color: white;
+}
+
+.send-button:hover {
+  background-color: #006cc1;
+}
+
+.upload-button:disabled, .send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
